@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parag's Nail Art Showcase</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.shutterstock.com/image-vector/ideas-nails-design-art-bright-600w-2436691937.jpg') no-repeat center center/cover;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 100px; /* Give space at the bottom */
+            position: relative; /* Required for positioning footer trigger */
+        }
+        header {
+            background: rgba(255, 133, 162, 0.8);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1.5s ease;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        .gallery {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-auto-rows: 300px;
+            gap: 20px;
+            padding: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            transform: rotate(calc(var(--rotate, 0deg)));
+        }
+        .gallery-item:nth-child(odd) {
+            --rotate: 2deg;
+        }
+        .gallery-item:nth-child(even) {
+            --rotate: -2deg;
+        }
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .gallery-item h3, .gallery-item p {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            margin: 0;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        footer {
+            background: rgba(51, 51, 51, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            bottom: -100%; /* Initially hidden */
+            left: 0;
+            width: 100%;
+            transition: bottom 0.3s ease;
+        }
+        footer h2 {
+            margin: 0 0 15px;
+            font-size: 1.8rem;
+            color: #ffccf2;
+        }
+        footer p {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+        a {
+            color: #ff85a2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        /* Hover effect: show the footer when mouse is near the bottom of the page */
+        body:hover footer {
+            bottom: 0; /* Slide up when hovering anywhere on the page */
+        }
+
+        /* Invisible trigger area near the bottom */
+        .footer-trigger {
+            height: 20px; /* The height of the invisible area */
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 10; /* Ensure it is above content */
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Yagnaa's Nail Art Studio</h1>
+    </header>
+
+    <section class="gallery">
+        <div class="gallery-item">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2431072589/display_1500/stock-photo-pink-and-white-or-black-color-simple-nail-art-design-in-young-women-s-hand-2431072589.jpg" alt="Nail Art Design 1">
+            <h3>Floral Elegance</h3>
+            <p>$20</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2488054519/display_1500/stock-photo-closeup-of-elegant-nail-art-with-gold-delicate-flowers-suitable-for-business-background-posters-2488054519.jpg" alt="Nail Art Design 2">
+            <h3>Glitter Glam</h3>
+            <p>$25</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://www.shutterstock.com/shutterstock/photos/1979105417/display_1500/stock-photo-female-hand-with-glitter-beige-nail-design-female-hand-hold-dry-autumn-flower-woman-hand-on-beige-1979105417.jpg" alt="Nail Art Design 3">
+            <h3>Abstract Chic</h3>
+            <p>$22</p>
+        </div>
+        <div class="gallery-item">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2115457475/display_1500/stock-photo-female-feet-with-beige-nail-design-glitter-beige-nail-polish-pedicure-with-black-dots-nail-art-2115457475.jpg" alt="Nail Art Design 4">
+            <h3>Classic French</h3>
+            <p>$18</p>
+        </div>
+    </section>
+
+    <!-- Invisible area to trigger the footer visibility -->
+    <div class="footer-trigger"></div>
+
+    <footer>
+        <h2>Contact Me</h2>
+        <p>Phone: <a href="tel:+1234567890">9974776574</a></p>
+        <p>Follow me on Instagram: <a href="https://www.instagram.com/nailsbyyagnesha?igsh=MWI3eHE2YWM5bGZzMA==" target="_blank">@nails_by_ygnaaa</a></p>
+        <p>Email: <a href="mailto:parag@example.com">yagneshaa@gamil.com</a></p>
+    </footer>
+
+</body>
+</html>
